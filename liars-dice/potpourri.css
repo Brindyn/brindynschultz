@@ -1,0 +1,10 @@
+input { text-align:right; }
+
+span{
+    font-size: large;
+    padding-left: 60px;
+}
+
+input{
+    font-size: large;
+}
