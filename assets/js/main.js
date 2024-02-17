@@ -31,7 +31,7 @@ const texts = [
     "machinist",
     "engineer",
     "programmer",
-    "inventor",
+    "chemist",
     "electrician",
     "student"
 ];
@@ -330,6 +330,50 @@ animate();
       clickable: true
     }
   });
+
+
+
+
+
+
+
+  // Define your job start and end dates
+  var jobDates = [
+    { start: new Date("August 1, 2018"), end: new Date("May 31, 2020") },
+    { start: new Date("February 1, 2020"), end: new Date("May 31, 2020") },
+    { start: new Date("May 1, 2022"), end: new Date("August 31, 2022") },
+    { start: new Date("November 1, 2021"), end: new Date("January 31, 2023") },
+    { start: new Date("January 1, 2023"), end: new Date("August 31, 2023") },
+    { start: new Date("August 1, 2023") },
+    { start: new Date("October 1, 2023") }
+    // Add more job entries as needed
+  ];
+
+  // Calculate total experience
+  var totalYears = 0;
+  var totalMonths = 0;
+
+  jobDates.forEach(function(job) {
+    var startDate = job.start;
+    var endDate = job.end || new Date(); // Use current date if end date is not specified
+
+    var diff = Math.abs(endDate - startDate);
+    var months = diff / (1000 * 60 * 60 * 24 * 30.44); // Average month length
+    var years = Math.floor(months / 12);
+
+    totalMonths += Math.round(months % 12);
+    totalYears += years;
+  });
+
+  // Adjust total months to fit within 12 months
+  totalYears += Math.floor(totalMonths / 12);
+  totalMonths %= 12;
+
+  // Display the total experience in the respective spans
+  document.getElementById("totalYears").setAttribute("data-purecounter-end", totalYears);
+  document.getElementById("totalMonths").setAttribute("data-purecounter-end", totalMonths);
+
+
 
   /**
    * Initiate Pure Counter 
