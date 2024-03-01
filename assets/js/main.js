@@ -24,13 +24,12 @@
 };
 
 const texts = [
-    "maker",
-    "machinist",
+    "student",
     "engineer",
-    "programmer",
-    "chemist",
-    "electrician",
-    "student"
+    "engineer",
+    "machinist",
+    "circuit designer",
+    "thinker"
 ];
 
 const morphTime = 1;
